@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" ng-app="vgConvertor">
 <head>
@@ -14,5 +15,23 @@
 <script src="currencyConvertor/convertor.component.js"></script>
 <script src="currencyConvertor/convertor.service.js"></script>
 <script src="currencyConvertor/stringToNumber.directive.js"></script>
+<script>
+/* 
+в приложении реализованы:
+1. сервис с http запросм удал. url
+2. component
+3. директива
+4. ng-options
+5. простая валидация
+
+Вопросы: 
+1.как и где, если проверка на минусовую сумму не прходит - 
+сделать  form.$invalid = true
+сам div:
+https://github.com/gorvic/currencyConvertor/blob/master/currencyConvertor/convertor.html#L27
+
+2. Фильтры в контроллерах, а не в представлениях - это правильный подход?
+*/	
+</script>
 </body>
 </html>
