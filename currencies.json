@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "shortName": "RUB",
+    "rate": 1
+  },
+  {
+    "id": 2,
+    "shortName": "USD",
+    "rate": 65
+  },
+  {
+    "id": 3,
+    "shortName": "EUR",
+    "rate": 75
+  }
+]

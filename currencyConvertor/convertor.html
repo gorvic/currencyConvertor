@@ -1,0 +1,57 @@
+<!--<pre>{{ form.currencies | json }} </pre>-->
+<!--<pre>{{ form.currencyFrom| json }} </pre>-->
+<!--<pre>{{ convertorForm.currencyFromChoice | json }}</pre>-->
+
+<form name="convertorForm" novalidate ng-submit="form.onSubmit();">
+    <p align="center">
+        <h4>Currency convertor</h4>
+    </p>
+    <p  ng-if="form.isLoading">
+        Loading... Please wait...
+    </p>
+    <div class="error" ng-if="form.errorWhileLoading">
+        Error is occured while loading...
+    </div>
+    <label for="amount-field">Amount:</label>
+    <input
+            id="amount-field"
+           name="amount"
+            type="number"
+           required="" type="text"
+           string-to-number
+           ng-model="form.amount"
+           placeholder="Enter amount (try string or negative)">
+    <div class="error" ng-show="convertorForm.amount.$error.required && convertorForm.amount.$touched">
+        Amount is required!
+    </div>
+    <div class="error" ng-show="!form.isAboveZero(form.amount) && convertorForm.amount.$touched">
+        Amount should be above zero!
+    </div>
+
+    <label for="from-field">From:</label>
+    <select
+            id="from-field"
+            name="currencyFromChoice"
+            required=""
+            ng-model="form.currencyFrom"
+            ng-options="currency.CharCode for currency in form.currencies">
+        <option value="">Select currency...</option>
+    </select>
+    <label for="to-field">to:</label>
+    <select
+            id="to-field"
+            name="currencyToChoice"
+            required=""
+            ng-model="form.currencyTo"
+            ng-options="currency.CharCode for currency in form.currencies">
+        <option value="">Select currency...</option>
+    </select>
+    <div id="result" ng-show="form.resultIsShown">
+        <div id="result-left"><b>{{ form.result }}</b></div>
+        <a id="result-right" href="" ng-click="form.resultIsShown = false" >&#215;</a>
+    </div>
+
+    <button type="submit" ng-disabled="convertorForm.$invalid">
+        Convert
+    </button>
+</form>
